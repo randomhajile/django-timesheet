@@ -1,10 +1,10 @@
 {% extends 'timesheet/base.html' %}
 {% block title %}Create a job{% endblock %}
 {% block body_block %}
-{% csrf_token %}
+
 <div>
   <form action="" method="post">
-
+    {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save" />
   </form>
