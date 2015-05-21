@@ -1,6 +1,5 @@
-=========
 Timesheet
-=========
+---------
 
 Timesheet is a simple Django app for invoicing.
 
