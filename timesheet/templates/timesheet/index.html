@@ -1,0 +1,5 @@
+{% extends 'timesheet/base.html' %}
+{% block title %}Welcome to jobs!{% endblock %}
+{% block body_block %}
+{% include 'timesheet/jobs_grid.html' with job_list=job_list %}
+{% endblock %}

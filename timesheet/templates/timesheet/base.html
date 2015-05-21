@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'timesheet/css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
+    <link href="{% static 'timesheet/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'timesheet/css/bootstrap-responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'timesheet/css/jquery-ui.css' %}" rel="stylesheet">
+
+    <title>Billit - {% block title %}Taking care of some of your billable hours.{% endblock %}</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/timesheet/">Billit</a>
+
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li class="navbar-text">Welcome to the cool side of the pillow!</li>
+            </ul>
+            <ul class="nav">
+              <li><a href="/timesheet/job_form/">Add Job</a></li>
+              <li><a href="/timesheet/about/">About</a></li>
+            </ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Search Jobs</li>
+              <li class="nav-header" id="secret"></li>
+              <form>
+                <label></label>
+                <li><input class="search-query span10" type="text" name="suggestion" value="" id="suggestion" /></li>
+              </form>
+            </ul>
+          </div>
+          <!--/.well -->
+        </div>
+        <!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            {% block body_block %}
+            {% endblock %}
+          </div>
+        </div>
+        <!--/span-->
+      </div>
+      <!--/row-->
+    </div>
+    <!--/.fluid-container-->
+
+    <hr>
+
+
+    <script src="{% static 'timesheet/js/jquery-2.1.4.js' %}"></script>
+    <script src="{% static 'timesheet/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'timesheet/js/timesheet.js' %}"></script>
+    <script src="{% static 'timesheet/js/jquery-ui.js' %}"></script>
+  </body>  
+  <footer>
+    <div class="container">
+        <p>&copy; Billit: Learning web development</p>
+    </div>
+  </footer>
+</html>

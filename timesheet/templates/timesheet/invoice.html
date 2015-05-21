@@ -1,0 +1,25 @@
+{% extends 'timesheet/base.html' %}
+{% block title %}{{ job.title }}{% endblock %}
+{% block body_block %}
+{% if error_message %}
+<p>
+  <strong>
+    {{ error_message }}
+  </strong>
+</p>
+{% endif %}
+<h1>{{ job.title }}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="span6">Start Date</div>
+    <div class="span6">End Date</div>
+  </div>
+  <div class="row">
+    <div class="span6"><input type="text" id="start-datepicker" name="start_date" value="{{ start_date|date:"m-d-Y" }}"></div>
+    <div class="span6"><input type="text" id="end-datepicker" name="end_date" value="{{ end_date|date:"m-d-Y" }}"></div>
+  </div>
+</div>
+<div name="line-items">
+  {% include 'timesheet/itemized_invoice.html' with times=times subtotal=subtotal tax=tax total=total start_date=start_date end_date=end_date%}
+</div>
+{% endblock %}

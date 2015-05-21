@@ -1,0 +1,50 @@
+{% extends 'timesheet/base.html' %}
+{% block title %}Create a job{% endblock %}
+{% block body_block %}
+{% csrf_token %}
+<div>
+  <form action="" method="post">
+
+    {{ form.as_p }}
+    <input type="submit" value="Save" />
+  </form>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="span3">Time Summary<a href="{% url 'timesheet:time' job.uuid %}">
+        <i class="icon-plus"></i>
+      </a>
+    </div>
+    <div class="span3"></div>
+    <div class="span3"></div>
+    <div class="span2"></div>
+    <div class="span1"></div>
+  </div>
+  <div class="row">
+    <div class="span3">Date</div>
+    <div class="span3">Total Time</div>
+    <div class="span3">Summary</div>
+    <div class="span2"></div>
+    <div class="span1"></div>
+    </div>
+  </div>
+  {% for time in times %}
+  <div class="row">
+    <div class="span3">{{ time.date|date:"M d, Y" }}</div>
+    <div class="span3">{{ time.total_time }} minutes</div>
+    <div class="span3">{{ time.summary }}</div>
+    <div class="span2">
+      <a href="{% url 'timesheet:edit_time' time.id %}">
+        <i class="icon-edit"></i>
+      </a>
+    </div>
+    <div class="span1">
+      <a href="#delete_time" name="delete_time" id="{{ time.id }}">
+        <i class="icon-trash"></i>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

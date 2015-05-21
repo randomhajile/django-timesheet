@@ -1,0 +1,35 @@
+<h3>Time Summary</h3>
+<div class="row">
+  <div class="span3">Date</div>
+  <div class="span3">Summary</div>
+  <div class="span3">Time Spent</div>
+  <div class="span3">Percent Total</div>
+</div>
+{% for time, percent in times %}
+<div class="row">
+  <div class="span3">{{ time.date|date:"M d, Y" }}</div>
+  <div class="span3">{{ time.summary }}</div>
+  <div class="span3">{{ time.total_time }} minutes</div>
+  <div class="span3">{{ percent }}</div>
+</div>
+{% endfor %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="span3"></div>
+    <div class="span3"></div>
+    <div class="span3">Subtotal</div>
+    <div class="span3">{{ subtotal|floatformat:2 }}</div>
+  </div>
+  <div class="row">
+    <div class="span3"></div>
+    <div class="span3"></div>
+    <div class="span3">Tax</div>
+    <div class="span3">{{ tax|floatformat:2 }}</div>
+  </div>
+  <div class="row">
+    <div class="span3"></div>
+    <div class="span3"></div>
+    <div class="span3">Total</div>
+    <div class="span3">{{ total|floatformat:2 }}</div>
+  </div>
+</div>

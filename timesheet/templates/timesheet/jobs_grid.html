@@ -1,0 +1,43 @@
+<div class="container-fluid" id="jobs-list">
+  <div class="row">
+    <div class="span2">Title</div>
+    <div class="span2">Date Added</div>
+    <div class="span2">Last Activity</div>
+    <div class="span2">Invoice</div>
+    <div class="span2">Time</div>
+    <div class="span1">Edit</div>
+    <div class="span1">Delete</div>
+  </div>
+  {% if job_list %}
+  {% csrf_token %}
+  {% for job in job_list %}
+  <div class="row">
+    <div class="span2">
+      <a href="{% url 'timesheet:detail' job.uuid %}">{{ job.title }}</a>
+    </div>
+    <div class="span2">{{ job.date_added|date:"M d, Y" }}</div>
+    <div class="span2">{{ job.last_activity|date:"M d, Y" }}</div>
+    <div class="span2">
+      <a href="{% url 'timesheet:invoice' job.uuid %}">
+        <i class="icon-file"></i>
+      </a>
+    </div>
+    <div class="span2">
+      <a href="{% url 'timesheet:time' job.uuid %}">
+        <i class="icon-plus"></i>
+      </a>
+    </div>
+    <div class="span1">
+      <a href="{% url 'timesheet:edit_job' job.uuid %}">
+        <i class="icon-edit"></i>
+      </a>
+    </div>
+    <div class="span1">
+      <a href="#delete_job" name="delete_job" id="{{ job.uuid }}">
+        <i class="icon-trash"></i>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+</div>
