@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include timesheet/static *
+recursive-include timesheet/templates *
