@@ -14,10 +14,10 @@ Quick Start
         'timesheet',
     )
 ```
-2. Include the polls URLconf in your project urls.py like this::
-
+2. Include the timesheet URLconf in your project urls.py like this:
+```
     url(r'^timesheet/', include('timesheet.urls', namespace='timesheet')),
-
+```
 3. Run `python manage.py migrate` to create the polls models.
 
 4. Visit http://127.0.0.1:8000/timesheet/ to participate in the poll.
