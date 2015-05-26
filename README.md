@@ -17,9 +17,9 @@ Quick Start
 ```
     url(r'^timesheet/', include('timesheet.urls', namespace='timesheet')),
 ```
-3. Run `python manage.py migrate` to create the polls models.
+3. Run `python manage.py migrate` to create the models.
 
-4. Visit http://127.0.0.1:8000/timesheet/ to participate in the poll.
+4. Visit http://127.0.0.1:8000/timesheet/
 
 Installation Instructions
 -------------------------
