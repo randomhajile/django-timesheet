@@ -1,7 +1,26 @@
 Timesheet
 ---------
 
-Timesheet is a simple Django app for invoicing.
+Timesheet is a simple Django app for invoicing built as a code challenge for Hire an Esquire. The requirements were
+
+ * "TimeEntry" CRUD (Create/Read/Update/Delete) for model with follow fields:
+     * Time spent in minutes
+     * Date of entry
+     * Summary of work completed
+     * Associated job (via UUID)
+
+ * "Job" CRUD for model with fields:
+     * Title
+     * Hourly rate
+     * Tax rate
+
+ * Dynamic creation of "Invoice" parameterized on job and date range returning the following fields:
+     * Job
+     * Date range
+     * Time entries in range
+     * $ subtotal (hourly_rate * total_minutes/60)
+     * $ tax (subtotal * tax_rate)
+     * $ total
 
 Quick Start
 -----------
